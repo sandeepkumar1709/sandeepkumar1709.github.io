@@ -1,18 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Navbar from "./components/Navbar";
 import About from "./components/About";
+import Skills from "./components/Skills";
 import WorkExperience from "./components/WorkExperience";
 import Projects from "./components/Projects";
 import Publications from "./components/Publications";
 import Footer from "./components/Footer";
-import ResumeButton from "./components/ResumeButton";
-import Tabs from "./components/Tabs";
-import Navbar from "./components/Navbar";
-import Skills from "./components/Skills";
 
 const App = () => {
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkMode]);
+
   return (
-    <div className="font-sans bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
-      <Navbar />
+    <div
+      className={
+        "font-sans min-h-screen flex flex-col " +
+        (darkMode ? "bg-gray-900 text-gray-100" : "bg-gray-50 text-gray-900")
+      }
+    >
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <main className="px-4 md:px-16 py-8 transition-opacity duration-500 ease-in-out flex-grow">
         <section id="about">
           <About />
