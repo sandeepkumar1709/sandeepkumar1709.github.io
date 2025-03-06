@@ -1,6 +1,4 @@
-// 📂 Updated Skills Section - Close Modal When Clicking Outside
-// src/components/Skills.tsx
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 
 const allSkills = [
