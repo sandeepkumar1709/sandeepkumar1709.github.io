@@ -1,3 +1,5 @@
+// 📂 Updated Skills Section - Close Modal When Clicking Outside
+// src/components/Skills.tsx
 import React, { useState, useEffect, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 
@@ -33,10 +35,36 @@ const allSkills = [
 ];
 
 const Skills = () => {
+  const messages = [
+    "Is the skill you're looking for missing?",
+    "Not seeing the skill you expected?",
+    "Looking for a skill that’s not listed?",
+  ];
+  const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+  const quotes = [
+    "Skills evolve, but a growth mindset lasts forever.",
+    "Mastery is not about knowing everything; it's about continuously learning and adapting.",
+    "Technology changes, but the ability to learn and adapt remains the greatest skill of all.",
+  ];
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
   const [displayedSkills, setDisplayedSkills] = useState<typeof allSkills>([]);
   const [showAllSkills, setShowAllSkills] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const modalRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setShowAllSkills(false);
+      }
+    };
+    if (showAllSkills) {
+      document.addEventListener("keydown", handleEscape);
+    }
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [showAllSkills]);
 
   useEffect(() => {
     if (!showAllSkills) {
@@ -141,6 +169,25 @@ const Skills = () => {
                   No matching skills found
                 </p>
               )}
+            </div>
+            <div className="mt-6 text-center border-t pt-4">
+              <p className="text-lg font-semibold text-gray-500 dark:text-gray-300">
+                {randomMessage}
+              </p>
+              <div className="flex justify-center gap-4 mt-3">
+                <div className="w-40 h-40 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-lg shadow p-4">
+                  <p className="text-lg font-semibold">Adaptability</p>
+                </div>
+                <div className="w-40 h-40 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-lg shadow p-4">
+                  <p className="text-lg font-semibold">Fast Learner</p>
+                </div>
+              </div>
+              <p className="mt-4 text-xl font-bold text-gray-700 dark:text-gray-200 tracking-wide">
+                Is this a perspective we can agree on?
+              </p>
+              <p className="mt-4 italic text-gray-500 dark:text-gray-400 text-md">
+                {randomQuote}
+              </p>
             </div>
           </div>
         </div>
