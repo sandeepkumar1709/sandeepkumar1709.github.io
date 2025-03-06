@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 
 const allSkills = [
@@ -35,6 +35,9 @@ const allSkills = [
 const Skills = () => {
   const [displayedSkills, setDisplayedSkills] = useState<typeof allSkills>([]);
   const [showAllSkills, setShowAllSkills] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const modalRef = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
     if (!showAllSkills) {
       const shuffleSkills = () => {
@@ -46,7 +49,23 @@ const Skills = () => {
       return () => clearInterval(interval);
     }
   }, [showAllSkills]);
-  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        setShowAllSkills(false);
+      }
+    };
+    if (showAllSkills) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showAllSkills]);
 
   const filteredSkills = allSkills.filter((skill) =>
     skill.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -85,39 +104,44 @@ const Skills = () => {
 
       {showAllSkills && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex flex-col items-center justify-center z-50 p-6">
-          <button
-            className="absolute top-5 right-5 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
-            onClick={() => setShowAllSkills(false)}
+          <div
+            ref={modalRef}
+            className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 w-4/5 max-h-[70vh] overflow-auto"
           >
-            Close
-          </button>
-          <input
-            type="text"
-            placeholder="Search Skills..."
-            className="w-3/4 p-3 mb-4 text-lg border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 bg-white dark:bg-gray-900 rounded-lg shadow-lg w-4/5 max-h-[70vh] overflow-auto p-6">
-            {filteredSkills.length > 0 ? (
-              filteredSkills.map((skill, index) => (
-                <div
-                  key={index}
-                  className="w-40 h-40 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-lg shadow p-4"
-                >
-                  <img
-                    src={skill.image}
-                    alt={skill.name}
-                    className="w-32 h-32 object-contain"
-                  />
-                  <p className="text-sm font-semibold mt-2">{skill.name}</p>
-                </div>
-              ))
-            ) : (
-              <p className="text-lg font-semibold text-gray-500 dark:text-gray-300">
-                No matching skills found
-              </p>
-            )}
+            <button
+              className="absolute top-5 right-5 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+              onClick={() => setShowAllSkills(false)}
+            >
+              Close
+            </button>
+            <input
+              type="text"
+              placeholder="Search Skills..."
+              className="w-3/4 p-3 mb-4 text-lg border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+              {filteredSkills.length > 0 ? (
+                filteredSkills.map((skill, index) => (
+                  <div
+                    key={index}
+                    className="w-40 h-40 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-lg shadow p-4"
+                  >
+                    <img
+                      src={skill.image}
+                      alt={skill.name}
+                      className="w-32 h-32 object-contain"
+                    />
+                    <p className="text-sm font-semibold mt-2">{skill.name}</p>
+                  </div>
+                ))
+              ) : (
+                <p className="text-lg font-semibold text-gray-500 dark:text-gray-300">
+                  No matching skills found
+                </p>
+              )}
+            </div>
           </div>
         </div>
       )}
