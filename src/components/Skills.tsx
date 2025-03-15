@@ -1,36 +1,66 @@
 import { useState, useEffect, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 
+import PythonImg from "../assets/skills/python.jpg";
+import JavaImg from "../assets/skills/java.png";
+import JavaScriptImg from "../assets/skills/javascript.png";
+import TypeScriptImg from "../assets/skills/typescript.png";
+import CImg from "../assets/skills/c.png";
+import CSSImg from "../assets/skills/CSS.png";
+import HTMLImg from "../assets/skills/html.jpg";
+import SQLImg from "../assets/skills/sql.png";
+import ShellScriptImg from "../assets/skills/shellscript.webp";
+// import CypherImg from "../assets/skills/cypher.png";
+import GraphQLImg from "../assets/skills/graphql.png";
+import AngularImg from "../assets/skills/angularJS.png";
+import FlutterImg from "../assets/skills/flutter.png";
+import AWSImg from "../assets/skills/aws.jpg";
+import DockerImg from "../assets/skills/docker.png";
+import KubernetesImg from "../assets/skills/kubernetes.png";
+import GitHubActionsImg from "../assets/skills/github-actions.png";
+import FlaskImg from "../assets/skills/flask.png";
+import FastAPIImg from "../assets/skills/fastapi.png";
+import SpringBootImg from "../assets/skills/springboot.png";
+import PostgreSQLImg from "../assets/skills/postgresql.png";
+import FirebaseImg from "../assets/skills/firebase.jpg";
+import SQLiteImg from "../assets/skills/sqlite.png";
+import PyTorchImg from "../assets/skills/pytorch.png";
+import TensorFlowImg from "../assets/skills/tensorflow.png";
+import NumpyImg from "../assets/skills/numpy.jpg";
+import PandasImg from "../assets/skills/pandas.png";
+import MatplotlibImg from "../assets/skills/matplotlib.png";
+import ReactImg from "../assets/skills/react.svg";
+
 const allSkills = [
-  { name: "Python", image: "/src/assets/skills/python.jpg" },
-  { name: "Java", image: "src/assets/skills/java.png" },
-  { name: "JavaScript", image: "src/assets/skills/javascript.png" },
-  { name: "TypeScript", image: "src/assets/skills/typescript.png" },
-  { name: "C", image: "src/assets/skills/c.png" },
-  { name: "CSS", image: "src/assets/skills/CSS.png" },
-  { name: "HTML", image: "src/assets/skills/html.jpg" },
-  { name: "SQL", image: "src/assets/skills/sql.png" },
-  { name: "ShellScript", image: "src/assets/skills/shellscript.webp" },
-  { name: "Cypher", image: "src/assets/skills/cypher.png" },
-  { name: "GraphQL", image: "src/assets/skills/graphql.png" },
-  { name: "Angular", image: "src/assets/skills/angularJS.png" },
-  { name: "Flutter", image: "src/assets/skills/flutter.png" },
-  { name: "AWS", image: "src/assets/skills/aws.jpg" },
-  { name: "Docker", image: "src/assets/skills/docker.png" },
-  { name: "Kubernetes", image: "src/assets/skills/kubernetes.png" },
-  { name: "Github Actions", image: "src/assets/skills/github-actions.png" },
-  { name: "Flask", image: "src/assets/skills/flask.png" },
-  { name: "FastAPI", image: "src/assets/skills/fastapi.png" },
-  { name: "Spring Boot", image: "src/assets/skills/springboot.png" },
-  { name: "PostgreSQL", image: "src/assets/skills/postgresql.png" },
-  { name: "Firebase", image: "src/assets/skills/firebase.jpg" },
-  { name: "SQLite", image: "src/assets/skills/sqlite.png" },
-  { name: "PyTorch", image: "src/assets/skills/pytorch.png" },
-  { name: "TensorFlow", image: "src/assets/skills/tensorflow.png" },
-  { name: "Numpy", image: "src/assets/skills/numpy.jpg" },
-  { name: "Pandas", image: "src/assets/skills/pandas.png" },
-  { name: "Matplotlib", image: "src/assets/skills/matplotlib.png" },
-  { name: "React", image: "src/assets/skills/react.svg" },
+  { name: "Python", image: PythonImg },
+  { name: "Java", image: JavaImg },
+  { name: "JavaScript", image: JavaScriptImg },
+  { name: "TypeScript", image: TypeScriptImg },
+  { name: "C", image: CImg },
+  { name: "CSS", image: CSSImg },
+  { name: "HTML", image: HTMLImg },
+  { name: "SQL", image: SQLImg },
+  { name: "ShellScript", image: ShellScriptImg },
+  { name: "Cypher", image: "src/assets/skills/cypher.png" }, // Placeholder for Cypher
+  { name: "GraphQL", image: GraphQLImg },
+  { name: "Angular", image: AngularImg },
+  { name: "Flutter", image: FlutterImg },
+  { name: "AWS", image: AWSImg },
+  { name: "Docker", image: DockerImg },
+  { name: "Kubernetes", image: KubernetesImg },
+  { name: "GitHub Actions", image: GitHubActionsImg },
+  { name: "Flask", image: FlaskImg },
+  { name: "FastAPI", image: FastAPIImg },
+  { name: "Spring Boot", image: SpringBootImg },
+  { name: "PostgreSQL", image: PostgreSQLImg },
+  { name: "Firebase", image: FirebaseImg },
+  { name: "SQLite", image: SQLiteImg },
+  { name: "PyTorch", image: PyTorchImg },
+  { name: "TensorFlow", image: TensorFlowImg },
+  { name: "Numpy", image: NumpyImg },
+  { name: "Pandas", image: PandasImg },
+  { name: "Matplotlib", image: MatplotlibImg },
+  { name: "React", image: ReactImg },
 ];
 
 const Skills = () => {
