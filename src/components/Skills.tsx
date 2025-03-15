@@ -21,7 +21,7 @@ import GitHubActionsImg from "../assets/skills/github-actions.png";
 import FlaskImg from "../assets/skills/flask.png";
 import FastAPIImg from "../assets/skills/fastapi.png";
 import SpringBootImg from "../assets/skills/springboot.png";
-import PostgreSQLImg from "../assets/skills/postgresql.png";
+import PostgreSQLImg from "../assets/skills/postgreSQL.png";
 import FirebaseImg from "../assets/skills/firebase.jpg";
 import SQLiteImg from "../assets/skills/sqlite.png";
 import PyTorchImg from "../assets/skills/pytorch.png";
