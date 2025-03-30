@@ -19,7 +19,6 @@ import DockerImg from "../assets/skills/docker.png";
 import KubernetesImg from "../assets/skills/kubernetes.png";
 import GitHubActionsImg from "../assets/skills/github-actions.png";
 import FlaskImg from "../assets/skills/flask.png";
-import FastAPIImg from "../assets/skills/fastapi.png";
 import SpringBootImg from "../assets/skills/springboot.png";
 import PostgreSQLImg from "../assets/skills/postgreSQL.png";
 import FirebaseImg from "../assets/skills/firebase.jpg";
@@ -50,7 +49,6 @@ const allSkills = [
   { name: "Kubernetes", image: KubernetesImg },
   { name: "GitHub Actions", image: GitHubActionsImg },
   { name: "Flask", image: FlaskImg },
-  { name: "FastAPI", image: FastAPIImg },
   { name: "Spring Boot", image: SpringBootImg },
   { name: "PostgreSQL", image: PostgreSQLImg },
   { name: "Firebase", image: FirebaseImg },

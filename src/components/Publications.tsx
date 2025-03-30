@@ -3,13 +3,7 @@ const publications = [
     title: "Analyzing Twitter Event Hype vs. Reality",
     description:
       "Published research leveraging NLP techniques to assess sentiment trends.",
-    link: "https://www.ijrar.org/papers/IJRAR23C1279.pdf",
-  },
-  {
-    title: "Brown Patch Disease Prediction Web App",
-    description:
-      "Research on machine learning model for disease prediction using climate data.",
-    link: "https://sites.google.com/view/umdturfgrasspathology/home",
+    link: "https://ijrar.org/viewfull.php?&p_id=IJRAR23C1279",
   },
 ];
 

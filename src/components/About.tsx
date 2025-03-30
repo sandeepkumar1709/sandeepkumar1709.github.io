@@ -15,11 +15,19 @@ const About = () => {
         About {FULL_NAME}
       </h2>
       <p className="text-lg text-gray-700 dark:text-gray-300">
-        I'm {FULL_NAME}, a passionate Software Engineer with experience in
-        full-stack development, cloud computing, and machine learning. I
-        specialize in building scalable web applications, optimizing
-        performance, and enhancing UX through data-driven engineering.
+        I'm {FULL_NAME}, a Software Engineer with a passion for solving
+        real-world problems through code. With experience in full-stack
+        development, cloud platforms like AWS, and applied machine learning, I
+        enjoy building scalable, high-performance applications that deliver real
+        impact. I’ve worked with diverse technologies—from React and TypeScript
+        to Flask and Kubernetes— always striving to write clean, efficient, and
+        thoughtful code.
+        <br className="hidden md:block" />
+        <br className="hidden md:block" />
+        Outside of work, I mentor students, contribute to open-source projects,
+        and am always up for a good problem-solving challenge.
       </p>
+
       <div className="flex justify-center space-x-4 mt-4">
         <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
           <FaLinkedin className="text-gray-600 dark:text-gray-400 text-2xl hover:scale-125 transition" />
