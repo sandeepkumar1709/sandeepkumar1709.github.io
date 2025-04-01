@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaLinkedin, FaGithub, FaMedium } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaMedium, FaFire } from "react-icons/fa";
 
 const Navbar = ({
   darkMode,
@@ -62,6 +62,17 @@ const Navbar = ({
             </a>
           </div>
         )}
+        <a
+          href="https://github.com/sandeepkumar1709/Leetcode-Daily-Challenge"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1 text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 font-semibold text-sm px-3 py-1 bg-white dark:bg-gray-700 rounded-md shadow hover:scale-105 transition"
+          title="LeetCode Daily Streak"
+        >
+          <FaFire className="text-lg" />
+          52-day streak
+        </a>
+
         <button
           onClick={() => setDarkMode(!darkMode)}
           className="px-3 py-1 bg-gray-600 rounded-lg hover:bg-gray-700"

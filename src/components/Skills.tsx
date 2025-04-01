@@ -29,6 +29,9 @@ import NumpyImg from "../assets/skills/numpy.jpg";
 import PandasImg from "../assets/skills/pandas.png";
 import MatplotlibImg from "../assets/skills/matplotlib.png";
 import ReactImg from "../assets/skills/react.svg";
+import AdaptabilityImg from "../assets/skills/adaptability.png";
+
+import FastLearnerImg from "../assets/skills/fastlearning.png";
 
 const allSkills = [
   { name: "Python", image: PythonImg },
@@ -129,10 +132,7 @@ const Skills = () => {
   return (
     <section className="bg-gray-100 dark:bg-gray-800 p-8 rounded-lg shadow-md text-center">
       <h2 className="text-3xl font-bold mb-4">Skills</h2>
-      <p className="italic text-gray-600 dark:text-gray-300 text-lg mb-6">
-        "Skills shouldn't be a factor to decide capability; it's just a tool.
-        It's all about how well you can utilize it."
-      </p>
+
       <div className="flex justify-center gap-6 animate-fade-in">
         {displayedSkills.map((skill, index) => (
           <div
@@ -164,11 +164,13 @@ const Skills = () => {
             className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 w-4/5 max-h-[70vh] overflow-auto"
           >
             <button
-              className="absolute top-5 right-5 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+              className="absolute top-5 right-5 bg-red-500 text-white w-10 h-10 text-2xl font-bold flex items-center justify-center rounded-md hover:bg-red-600 transition-colors"
               onClick={() => setShowAllSkills(false)}
+              aria-label="Close modal"
             >
-              Close
+              &times;
             </button>
+
             <input
               type="text"
               placeholder="Search Skills..."
@@ -203,12 +205,23 @@ const Skills = () => {
               </p>
               <div className="flex justify-center gap-4 mt-3">
                 <div className="w-40 h-40 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-lg shadow p-4">
-                  <p className="text-lg font-semibold">Adaptability</p>
+                  <img
+                    src={AdaptabilityImg}
+                    alt="Adaptability"
+                    className="w-24 h-24 object-contain"
+                  />
+                  <p className="text-sm font-semibold mt-2">Adaptability</p>
                 </div>
                 <div className="w-40 h-40 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-lg shadow p-4">
-                  <p className="text-lg font-semibold">Fast Learner</p>
+                  <img
+                    src={FastLearnerImg}
+                    alt="Fast Learner"
+                    className="w-24 h-24 object-contain"
+                  />
+                  <p className="text-sm font-semibold mt-2">Fast Learner</p>
                 </div>
               </div>
+
               <p className="mt-4 text-xl font-bold text-gray-700 dark:text-gray-200 tracking-wide">
                 Is this a perspective we can agree on?
               </p>

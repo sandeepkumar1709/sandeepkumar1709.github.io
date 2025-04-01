@@ -2,30 +2,30 @@ const projects = [
   {
     title: "GREBoost",
     description:
-      "Developed a microservices-based e-learning platform with Flask, FastAPI, and Angular, deployed on AWS.",
+      "Built a scalable e-learning platform using Flask microservices and Angular, deployed on AWS with CI/CD. Enabled dynamic GRE test generation and user analytics for improved prep tracking.",
     tech: "Angular, Flask, AWS, Microservices",
-    link: "#",
+    link: "https://github.com/sandeepkumar1709/GREBoost/blob/main/README.md",
   },
   {
     title: "Twitter Sentiment Analysis",
     description:
-      "Built an NLP-based app analyzing Twitter event hype using Flask and Tweepy, deployed on Heroku.",
+      "Developed an NLP-based app to assess Twitter event hype vs. reality using NLTK and event-time correlation. Achieved 78% model accuracy in sentiment classification.",
     tech: "Flask, Tweepy, Heroku, NLTK",
-    link: "#",
+    link: "https://github.com/sandeepkumar1709/Tweet-Sentiment-Analyzer/blob/master/README.md",
   },
   {
     title: "Online Crime Reporting System",
     description:
-      "Designed a Flutter & Flask app for crime reporting and police case management with Firebase & SQLite.",
+      "Designed a cross-platform app for secure crime reporting with police-side case tracking and real-time FIR updates. Improved accessibility for victims through a simplified UI.",
     tech: "Flutter, Flask, Firebase, SQLite",
-    link: "#",
+    link: "https://github.com/sandeepkumar1709/CrimeReporter/blob/master/README.md",
   },
   {
     title: "Online Pharmacy App with ID Check",
     description:
-      "Developed a Hackathon project enabling prescription validation using OpenCV and Flutter.",
+      "Hackathon project enabling prescription upload and facial ID validation using OpenCV. Enhanced safety for regulated medication access.",
     tech: "Flutter, Flask, OpenCV",
-    link: "#",
+    link: null,
   },
 ];
 
@@ -46,12 +46,14 @@ const Projects = () => {
             <p className="text-sm font-medium mt-2 text-gray-500 dark:text-gray-400">
               {project.tech}
             </p>
-            <a
-              href={project.link}
-              className="text-blue-500 hover:underline mt-2 inline-block"
-            >
-              View Project
-            </a>
+            {project.link && (
+              <a
+                href={project.link}
+                className="text-blue-500 hover:underline mt-2 inline-block"
+              >
+                View Project
+              </a>
+            )}
           </div>
         ))}
       </div>
