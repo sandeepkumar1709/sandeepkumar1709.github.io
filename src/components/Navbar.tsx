@@ -63,7 +63,7 @@ const Navbar = ({
           </div>
         )}
         <a
-          href="https://github.com/sandeepkumar1709/Leetcode-Daily-Challenge"
+          href="https://github.com/sandeepkumar1709/Leetcode-Daily-Challenge/blob/main/README.md"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1 text-orange-500 hover:text-orange-600 dark:hover:text-orange-400 font-semibold text-sm px-3 py-1 bg-white dark:bg-gray-700 rounded-md shadow hover:scale-105 transition"
